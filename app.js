@@ -24,6 +24,23 @@ window.saveCustomer = async function () {
   let phone =
     document.getElementById("phone").value;
 
+ let product =
+document.getElementById("product").value;
+
+ let productPrice =
+parseFloat(
+document.getElementById("productPrice").value
+);
+
+ let downPayment =
+parseFloat(
+document.getElementById("downPayment").value
+);
+
+ let loanAmount =
+productPrice - downPayment;
+
+
   let amount =
     parseFloat(document.getElementById("amount").value);
 
@@ -33,24 +50,26 @@ window.saveCustomer = async function () {
   let months =
     parseInt(document.getElementById("months").value);
 
-  let emi =
-    calculateEMI(amount, rate, months);
-
- let product =
-document.getElementById("product").value;
-
-let productPrice =
-parseFloat(
-document.getElementById("productPrice").value
+ let emi =
+calculateEMI(
+loanAmount,
+rate,
+months
 );
 
-let downPayment =
-parseFloat(
-document.getElementById("downPayment").value
-);
 
-  document.getElementById("emiResult")
-    .innerText = "Monthly EMI = ₹" + emi;
+
+ document.getElementById("emiResult")
+.innerHTML = `
+
+Loan Amount:
+₹${loanAmount}
+
+<br><br>
+
+Monthly EMI:
+₹${emi}
+`;
 
   await addDoc(collection(db, "customers"), {
     name,
