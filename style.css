@@ -3,7 +3,9 @@
   padding:0;
   box-sizing:border-box;
 }
-
+body{
+  background:red;
+}
 body{
 
   font-family:Arial, sans-serif;
@@ -15,7 +17,7 @@ body{
     #1e293b
   );
  
-  background:red;
+
 
   min-height:100vh;
 
