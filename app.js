@@ -36,6 +36,19 @@ window.saveCustomer = async function () {
   let emi =
     calculateEMI(amount, rate, months);
 
+ let product =
+document.getElementById("product").value;
+
+let productPrice =
+parseFloat(
+document.getElementById("productPrice").value
+);
+
+let downPayment =
+parseFloat(
+document.getElementById("downPayment").value
+);
+
   document.getElementById("emiResult")
     .innerText = "Monthly EMI = ₹" + emi;
 
